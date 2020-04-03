@@ -18,6 +18,7 @@ router.post('/', function(req, res, next) {
   let Kitten = mongoose.model('Cat', kittySchema);
   let Snow = new Kitten({name:'Snow'});
   Snow.save()*/
+  console.log(req.body)
   var query = Models.Person.findOne({Usr:req.body.usr});
     query.lean(true);
     query.exec(function (err, person) {
