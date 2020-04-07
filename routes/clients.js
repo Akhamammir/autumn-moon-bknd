@@ -18,7 +18,7 @@ router.post('/upload', function(req, res, next) {
     let state = req.body.state;
     Models.Client.findOneAndUpdate({_id: state._id ? state._id : new mongoose.Types.ObjectId() },
       {
-        'state':state
+        ...state
       }, {upsert: true}, function(err, doc) {
       console.log(err)
       if (err){
