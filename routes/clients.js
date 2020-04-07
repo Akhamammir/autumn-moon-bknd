@@ -3,7 +3,7 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Models = require('./../Models/mongooseModels');
 router.post('/', function(req, res, next) {
-  var query = Models.Client.find({Team:{$eq:req.body.team}});
+  var query = Models.Client.find({team:{$eq:req.body.team}});
     query.lean(true);
     query.exec(function (err, person) {
       if (err) return handleError(err);
