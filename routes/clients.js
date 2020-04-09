@@ -7,8 +7,8 @@ router.post('/', function(req, res, next) {
     query.lean(true);
     query.exec(function (err, person) {
       if (err) return handleError(err);
-      console.log(person);
-      res.send({'User':person})
+      //console.log(person, 'person, line 10');
+      res.send({'Clients':person})
     });
 });
 
