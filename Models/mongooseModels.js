@@ -7,7 +7,7 @@ var kittySchema = new mongoose.Schema({
 var ClientSchema = new mongoose.Schema({
   usr:{
     _id:{}, Name:{}, team:Number, Pos:String
-  }, razon:String, cName:String, rine:String, fiscal:String,
+  }, razon:String, cName:String, team:Number, rine:String, fiscal:String,
   workers:Boolean, curp:String, rfc:String, pPhys:Boolean, branch:Boolean,
   step:Number, extran:Boolean, phoneNum:String, show:Boolean, resultado:String,
   assigned:{}, branchAdd:[], arrayCon:[],arrayDatos:[],arrayActF:[] ,
