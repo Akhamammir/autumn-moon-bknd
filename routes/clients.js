@@ -4,7 +4,6 @@ var mongoose = require('mongoose');
 var Models = require('./../Models/mongooseModels');
 
 router.post('/', function(req, res, next) {
-  //console.log(req.body)
   var query = Models.Client.find({team: +req.body.team});
     query.lean(true);
     query.exec(function (err, person) {
@@ -18,9 +17,8 @@ router.post('/', function(req, res, next) {
 });
 
 
-router.post('/:id', function(req, res, next) {
-const id = req.params.id
-  //console.log(req.body)
+router.post('/client', function(req, res, next) {
+const id = req.body.id
   var query = Models.Client.findOne({_id : id});
     query.lean(true);
     query.exec(function (err, doc) {
@@ -35,8 +33,7 @@ const id = req.params.id
 
 
 router.post('/upload', function(req, res, next) {
-    //console.log(req.body.state)
-    let state = req.body.state;
+  let state = req.body.state;
     Models.Client.findOneAndUpdate({_id: state._id ? state._id : new mongoose.Types.ObjectId() },
       {
         ...state
