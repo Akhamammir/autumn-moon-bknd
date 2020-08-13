@@ -12,6 +12,7 @@ var userslistRouter = require('./routes/usrlist');
 var clientsRouter = require('./routes/clients');
 var uplUsrrouter = require('./routes/uploadUsr');
 var rmUsrRounter = require('./routes/rmUsr');
+var valid = require('./routes/valid');
 
 var app = express();
 var uri = "mongodb+srv://root:S4kur4-007@testcluster-fkm78.gcp.mongodb.net/Heza?retryWrites=true&w=majority";
@@ -30,6 +31,7 @@ app.use('/userslist', userslistRouter);
 app.use('/clients', clientsRouter);
 app.use('/upUsr', uplUsrrouter);
 app.use('/rmUsr', rmUsrRounter);
+app.use('/valid', valid);
 mongoose.connect(uri);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
