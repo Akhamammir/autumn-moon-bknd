@@ -4,7 +4,8 @@ var mongoose = require('mongoose');
 var Models = require('./../Models/mongooseModels');
 
 router.post('/', function(req, res, next) {
-  var query = Models.Client.find({team: +req.body.team});
+  console.log(req.body.team)
+  var query = Models.Client.find({team: ''+req.body.team});
     query.lean(true);
     query.exec(function (err, person) {
       if (err){

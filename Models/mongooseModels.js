@@ -4,7 +4,17 @@ var UserSchema = new mongoose.Schema({
   Curp:String, RFC:String, DateH:String, Pos:String, Phone:String, Emergency:String,
   Academic: String, Pwd: String, Usr:String
 });
-var ClientSchema = new mongoose.Schema({}, {strict:false});
+var ClientSchema = new mongoose.Schema({
+  usr:{
+    _id:{}, Name:{}, team:Number, Pos:String
+  }, razon:String, cName:String, team:Number, rine:String, fiscal:String,
+  workers:Boolean, curp:String, rfc:String, pPhys:Boolean, branch:Boolean,
+  step:Number, extran:Boolean, phoneNum:String, show:Boolean, resultado:String,
+  Resultado2:String,
+  assigned:{}, branchAdd:[], arrayCon:[],arrayDatos:[],arrayActF:[] ,
+  regFiscal:[], isn:String, rtp:String, cedular:String, ish:String,
+  succList:[], contactList:[], repList:[]
+}, {strict:false});
 var kittySchema = new mongoose.Schema({
   API_KEY: String, active: Boolean
 })
