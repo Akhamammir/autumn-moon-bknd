@@ -5,7 +5,7 @@ var Models = require('./../Models/mongooseModels');
 
 router.post('/', function(req, res, next) {
   console.log(req.body.team)
-  var query = Models.Client.find({team: ''+req.body.team});
+  var query = Models.Client.find({team: req.body.team });
     query.lean(true);
     query.exec(function (err, person) {
       if (err){
@@ -47,5 +47,16 @@ router.post('/upload', function(req, res, next) {
       return res.send('Succesfully saved.');
     } )
 });
+
+router.post('/delete', function(req, res, next) {
+  Models.Client.findByIdAndDelete ({_id:req.body._id},function(err, doc) {
+    console.log(err)
+    if (err){
+      console.log(err)
+      return res.send(500, {error: err});
+    }
+    return res.send('Succesfully saved.');
+  } )
+  });
 
 module.exports = router;
