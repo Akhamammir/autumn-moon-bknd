@@ -12,7 +12,8 @@ router.post('/', function(req, res, next) {
         RFC: state.rfc, DateH:state.dateHire, email:state.email,
         Pos:state.position, Phone:state.phoneNum, team:state.Team,
         Emergency:state.emergencyNum, Academic:state.academic,
-        Pwd:state.password, Usr:state.name[0]+state.nameFather[0]+state.nameMother
+        Pwd:state.password, Usr:state.name[0]+state.nameFather[0]+state.nameMother,
+        EmergencyNam:state.EmergencyNam
       }, {upsert: true}, function(err, doc) {
       console.log(err)
       if (err){
