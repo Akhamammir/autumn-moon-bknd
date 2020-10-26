@@ -19,12 +19,25 @@ router.post('/', function(req, res, next) {
   let Snow = new Kitten({name:'Snow'});
   Snow.save()*/
   console.log(req.body)
-  var query = Models.Person.findOne({Usr:req.body.usr});
+  var query = Models.Person.findOne({email:req.body.usr});
     query.lean(true);
     query.exec(function (err, person) {
       if (err) return handleError(err);
       console.log(person);
-      res.send({'User':person})
+      if (person) {
+        console.log('1')
+        if(req.body.pwd == person.Pwd){
+          console.log('2')
+          res.status(202).send({Usr:person})
+        } else {
+          console.log('2a')
+          res.sendStatus(200)
+        }
+      } else {
+        console.log('1a')
+        res.sendStatus(200)
+      }
+      //res.send({'User':person})
     });
 });
 
