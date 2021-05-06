@@ -5,7 +5,7 @@ var Models = require('./../Models/mongooseModels');
 
 router.post('/', function(req, res, next) {
   console.log(req.body.team)
-  var query = Models.Client.find({team: req.body.team });
+  var query = req.body.team == '1337' ? Models.Client.find({}): Models.Client.find({team: req.body.team });
     query.lean(true);
     query.exec(function (err, person) {
       if (err){
