@@ -7,7 +7,7 @@ var UserSchema = new mongoose.Schema({
 });
 var ClientSchema = new mongoose.Schema({
   usr:{
-    _id:{}, Name:{}, team:any, Pos:String
+    _id:{}, Name:{}, team:String, Pos:String
   }, razon:String, cName:String, team:String, rine:String, fiscal:String,
   workers:Boolean, curp:String, rfc:String, pPhys:Boolean, branch:Boolean,
   step:Number, extran:Boolean, phoneNum:String, show:Boolean, resultado:String,
