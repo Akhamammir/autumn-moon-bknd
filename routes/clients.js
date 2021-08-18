@@ -20,6 +20,7 @@ router.post('/', function(req, res, next) {
 
 router.post('/client', function(req, res, next) {
 const id = req.body.id
+console.log(id)
   var query = Models.Client.findOne({_id : id});
     query.lean(true);
     query.exec(function (err, doc) {
@@ -43,7 +44,7 @@ router.post('/upload', function(req, res, next) {
       if (err){
         console.log(err)
         return res.send(500, {error: err});
-      }
+      } 
       return res.send('Succesfully saved.');
     } )
 });
