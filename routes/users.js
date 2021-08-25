@@ -40,5 +40,18 @@ router.post('/', function(req, res, next) {
       //res.send({'User':person})
     });
 });
-
+router.post('/getUser', function(req, res, next) {
+  const id = req.body.id
+  console.log(id)
+    var query = Models.Person.findOne({_id : id});
+      query.lean(true);
+      query.exec(function (err, doc) {
+        if (err){
+          console.log(err)
+          return res.send(500, {error: err});
+        }
+        console.log(doc, 'person, line 10');
+        res.send({'User':doc})
+      });
+  });
 module.exports = router;
