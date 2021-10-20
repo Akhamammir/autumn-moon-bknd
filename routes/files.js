@@ -4,7 +4,6 @@ const https = require("https");
 const fs = require('fs')
 
 router.post('/', function(req, res, next) {
-    console.log("🚀 ~ file: guias.js ~ line 8 ~ router.post ~ req.files.foo", req.files.archivo.tempFilePath)
 
     fs.readFile(req.files.archivo.tempFilePath, 'utf8', function (err, data) {
         const request = https.request('https://content.dropboxapi.com/2/files/upload', {
